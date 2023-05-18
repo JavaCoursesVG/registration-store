@@ -17,4 +17,11 @@
         <createSequence sequenceName="REGISTRATIONS_SEQ" startValue="1" incrementBy="50"/>
     </changeSet>
 
+    <changeSet author="vadim" id="3">
+        <addColumn tableName="REGISTRATIONS">
+            <column name="surname" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

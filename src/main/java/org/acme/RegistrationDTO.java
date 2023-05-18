@@ -8,6 +8,11 @@ public record RegistrationDTO(
         @NotBlank
         @NotNull
         @Length(min = 3, max = 50)
-        String name
+        String name,
+        String surname,
+        @NotNull
+        @NotBlank
+        @Length(min = 3, max = 50)
+        String email
 ) {
 }

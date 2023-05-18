@@ -11,9 +11,11 @@ public class RegistrationService {
     EntityManager em;
 
     @Transactional
-    public void register(String name) {
+    public void register(String name, String surname, String email) {
         var reg = new RegistrationEntity();
         reg.setName(name);
+        reg.setSurname(surname);
+        reg.setEmail(email);
         em.persist(reg);
     }
 }
