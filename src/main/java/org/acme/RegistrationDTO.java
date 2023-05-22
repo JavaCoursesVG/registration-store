@@ -13,6 +13,7 @@ public record RegistrationDTO(
         @NotNull
         @NotBlank
         @Length(min = 3, max = 50)
-        String email
+        String email,
+        boolean approved
 ) {
 }

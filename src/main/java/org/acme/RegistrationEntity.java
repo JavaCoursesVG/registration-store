@@ -16,6 +16,8 @@ public class RegistrationEntity {
     public String surname;
     @Column(name = "EMAIL")
     public String email;
+    @Column
+    public boolean approved;
 
     public Long getId() {
         return id;
@@ -39,4 +41,8 @@ public class RegistrationEntity {
     public String getEmail() { return email; }
 
     public void setEmail(String email) { this.email = email; }
+
+    public boolean isApproved() { return approved; }
+
+    public void setApproved(Boolean approved) { this.approved = approved; }
 }

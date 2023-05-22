@@ -24,4 +24,10 @@
         </addColumn>
     </changeSet>
 
+    <changeSet author="vadim" id="4">
+        <addColumn tableName="REGISTRATIONS">
+            <column name="approved" type="BOOLEAN"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
