@@ -26,6 +26,18 @@ public class RegistrationService {
     public Object getAll() {
         var resultList = em.createQuery("select entity from RegistrationEntity entity")
                 .getResultList();
-        return resultList;
+        RegistrationEntity reg = new RegistrationEntity();
+        var resultList2 = em.createNativeQuery("SELECT * FROM public.registrations", RegistrationEntity.class)
+                .getResultList();
+        return resultList2;
+    }
+
+    @Transactional
+    public void updateRegistrations(String name, String surname, String email, boolean approved) {
+        var resultList2 = em.createNativeQuery(
+                "UPDATE public.registrations SET approved=true WHERE name='"
+                + name +"', surname='" + surname +"', email='" + email +"'")
+                .getResultList();
+
     }
 }
