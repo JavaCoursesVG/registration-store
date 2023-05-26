@@ -30,7 +30,7 @@ public class RegistrationResource {
 
     @GET
     @Path("/get_registrations")
-    public List<RegistrationEntity> getAllRegistrations() {
-        return registrationService.getAll(100);
+    public Object getAllRegistrations() {
+        return registrationService.getAll();
     }
 }

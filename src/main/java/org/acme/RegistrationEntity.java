@@ -9,7 +9,6 @@ public class RegistrationEntity {
     @GeneratedValue
     @Column(name = "ID")
     public Long id;
-
     @Column(name = "NAME")
     public String name;
     @Column(name = "SURNAME")

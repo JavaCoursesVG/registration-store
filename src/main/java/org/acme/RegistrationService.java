@@ -23,9 +23,8 @@ public class RegistrationService {
     }
 
     @Transactional
-    public List<RegistrationEntity> getAll(int resNum) {
+    public Object getAll() {
         var resultList = em.createQuery("select entity from RegistrationEntity entity")
-                .setMaxResults(resNum)
                 .getResultList();
         return resultList;
     }
