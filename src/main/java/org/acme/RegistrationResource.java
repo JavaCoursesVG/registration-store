@@ -8,8 +8,6 @@ import jakarta.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
-
 @Path("/registration")
 public class RegistrationResource {
     private static final Logger LOG = LoggerFactory.getLogger(RegistrationResource.class);
@@ -33,6 +31,7 @@ public class RegistrationResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Object getAllRegistrations() {
+        LOG.debug("test GET");
         return registrationService.getAll();
     }
 
@@ -40,12 +39,8 @@ public class RegistrationResource {
     @Path("/update_registrations")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateRegistrations(@Valid @NotNull RegistrationDTO registration) {
-        var name = registration.name();
-        var surname = registration.surname();
-        var email = registration.email();
-        var approved = registration.approved();
-        LOG.debug("registration for {}", name + " " + surname + " | " + email + " | " + approved);
-        registrationService.updateRegistrations(registration.name(), registration.surname(), registration.email(), registration.approved());
+    public void updateRegistrations(RegistrationEntity registrationEntity) {
+        LOG.debug("test PUT");
+        registrationService.updateRegistrations(registrationEntity);
     }
 }

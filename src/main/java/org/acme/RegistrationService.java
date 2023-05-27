@@ -5,8 +5,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
-import java.util.List;
-
 @ApplicationScoped
 public class RegistrationService {
     @PersistenceContext
@@ -27,17 +25,14 @@ public class RegistrationService {
         var resultList = em.createQuery("select entity from RegistrationEntity entity")
                 .getResultList();
         RegistrationEntity reg = new RegistrationEntity();
-        var resultList2 = em.createNativeQuery("SELECT * FROM public.registrations", RegistrationEntity.class)
+        var nativeQueryResultList = em.createNativeQuery("SELECT * FROM public.registrations", RegistrationEntity.class)
                 .getResultList();
-        return resultList2;
+        return resultList;
     }
 
     @Transactional
-    public void updateRegistrations(String name, String surname, String email, boolean approved) {
-        var resultList2 = em.createNativeQuery(
-                "UPDATE public.registrations SET approved=true WHERE name='"
-                + name +"', surname='" + surname +"', email='" + email +"'")
-                .getResultList();
-
+    public void updateRegistrations(RegistrationEntity reg) {
+        var updateRegistration = em.find(RegistrationEntity.class, reg.getId());
+        updateRegistration.setApproved(reg.isApproved());
     }
 }

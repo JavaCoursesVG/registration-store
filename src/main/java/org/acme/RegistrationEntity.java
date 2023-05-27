@@ -33,15 +33,28 @@ public class RegistrationEntity {
     public void setName(String name) {
         this.name = name;
     }
-    public String getSurname() { return surname; }
 
-    public void setSurname(String surname) { this.surname = surname; }
+    public String getSurname() {
+        return surname;
+    }
 
-    public String getEmail() { return email; }
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
-    public void setEmail(String email) { this.email = email; }
+    public String getEmail() {
+        return email;
+    }
 
-    public boolean isApproved() { return approved; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public void setApproved(Boolean approved) { this.approved = approved; }
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(Boolean approved) {
+        this.approved = approved;
+    }
 }
